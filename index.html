@@ -27,17 +27,17 @@
 
 
 :root{
-  --espresso:#3a2115;
-  --espresso-dark:#241209;
-  --cream:#faf3e6;
-  --cream-warm:#f3e6cf;
-  --tan:#e8c9a0;
-  --terracotta:#c9622d;
-  --terracotta-dark:#a94f22;
-  --text:#2c1810;
-  --text-soft:#5c4433;
-  --white:#fffdf9;
-  --shadow:0 10px 28px rgba(58,33,21,0.12);
+  --espresso:#29211e;
+  --espresso-dark:#1a1512;
+  --cream:#ffffff;
+  --cream-warm:#f4f1f0;
+  --tan:#c7c0bc;
+  --terracotta:#006eb8;
+  --terracotta-dark:#00568f;
+  --text:#29211e;
+  --text-soft:#755f57;
+  --white:#ffffff;
+  --shadow:0 10px 28px rgba(41,33,30,0.12);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;}
@@ -75,7 +75,19 @@ main{
   padding:6px clamp(20px,4vw,48px) clamp(14px,2.5vh,24px);
   max-width:1080px;margin:0 auto;width:100%;
 }
-.intro{text-align:center;max-width:600px;}
+.intro{
+  text-align:center;max-width:100%;width:100%;position:relative;overflow:hidden;
+  border-radius:28px;isolation:isolate;
+  padding:clamp(56px,11vh,104px) clamp(24px,5vw,56px);
+}
+.intro-video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+}
+.intro-overlay{
+  position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(26,21,18,.8), rgba(26,21,18,.62));
+}
+.intro-content{max-width:600px;margin:0 auto;}
 .badge{
   display:inline-flex;align-items:center;gap:7px;background:var(--cream-warm);
   border:1px solid var(--tan);padding:6px 14px;border-radius:999px;
@@ -84,9 +96,12 @@ main{
 .badge .dot{width:6px;height:6px;border-radius:50%;background:#4d9a5c;}
 .intro h1{
   font-family:'UnifrakturCook',cursive;font-weight:700;
-  font-size:clamp(38px,5.6vw,64px);line-height:1.25;color:var(--espresso-dark);margin-bottom:8px;
+  font-size:clamp(38px,5.6vw,64px);line-height:1.25;color:var(--white);margin-bottom:8px;
 }
-.intro p{color:var(--text-soft);font-size:clamp(14px,1.6vw,16.5px);}
+.intro p{color:var(--tan);font-size:clamp(14px,1.6vw,16.5px);}
+@media (prefers-reduced-motion: reduce){
+  .intro-video{display:none;}
+}
 
 /* ROASTS */
 .roasts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);width:100%;}
@@ -140,9 +155,15 @@ footer span:not(:last-child)::after{content:"·";margin-left:20px;color:var(--ta
 
 <main>
   <div class="intro">
-    <span class="badge"><span class="dot"></span>Same-day delivery across Stark County</span>
-    <h1>Time to Espresso Yourself.</h1>
-    <p>The exclusive Stark County distributor of Velvet Mountain Coffee. Pick a roast &mdash; order by 2pm, it's on your porch tonight.</p>
+    <video class="intro-video" autoplay muted loop playsinline preload="auto" poster="beans-bg-poster.jpg">
+      <source src="beans-bg.mp4" type="video/mp4">
+    </video>
+    <div class="intro-overlay"></div>
+    <div class="intro-content">
+      <span class="badge"><span class="dot"></span>Same-day delivery across Stark County</span>
+      <h1>Time to Espresso Yourself.</h1>
+      <p>The exclusive Stark County distributor of Velvet Mountain Coffee. Pick a roast &mdash; order by 2pm, it's on your porch tonight.</p>
+    </div>
   </div>
 
   <div class="roasts">
