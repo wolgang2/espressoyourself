@@ -63,8 +63,14 @@ html{scroll-behavior:smooth;}
 body{
   font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   background-color:var(--cream);
-  background-image:radial-gradient(rgba(28,23,19,0.16) 1px, transparent 1.3px);
-  background-size:7px 7px;
+  background-image:
+    radial-gradient(rgba(28,23,19,0.16) 1px, transparent 1.3px),
+    linear-gradient(180deg, rgba(236,225,213,.5) 0%, rgba(236,225,213,1) 26%, rgba(236,225,213,1) 74%, rgba(236,225,213,.5) 100%),
+    url('beans-purple-poster.jpg');
+  background-position:0 0, center, center;
+  background-size:7px 7px, 100% 100vh, cover;
+  background-repeat:repeat, no-repeat, no-repeat;
+  background-attachment:scroll, fixed, fixed;
   color:var(--text);
   display:flex;flex-direction:column;min-height:100vh;
 }
@@ -297,27 +303,6 @@ main{
   .order-modal-overlay,.order-modal{transition:none;}
 }
 
-/* SENSORY BREAK — ambient looping beans video between hero and roasts */
-.sensory-break{
-  position:relative;overflow:hidden;border-radius:22px;isolation:isolate;
-  width:100%;height:clamp(200px,30vh,320px);
-  background:#2a1140;
-}
-.sensory-video{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  z-index:-2;
-  background-image:url('beans-purple-poster.jpg');background-size:cover;background-position:center;
-}
-.sensory-overlay{
-  position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:
-    linear-gradient(180deg, rgba(42,17,64,.35) 0%, rgba(42,17,64,0) 30%, rgba(42,17,64,0) 70%, rgba(42,17,64,.4) 100%),
-    linear-gradient(90deg, rgba(74,31,92,.28) 0%, rgba(74,31,92,0) 22%, rgba(74,31,92,0) 78%, rgba(74,31,92,.28) 100%);
-}
-@media (prefers-reduced-motion: reduce){
-  .sensory-video{display:none;}
-}
-
 /* HERO CTAs — solid/ghost pair tuned for the dark video background */
 a.cta-primary{
   background:var(--white);color:var(--espresso-dark);padding:13px 26px;font-size:14.5px;
@@ -389,13 +374,6 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
       <svg class="icon-muted" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M19 6a9 9 0 0 1 0 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55"/><line x1="3" y1="21" x2="21" y2="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M19 6a9 9 0 0 1 0 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55"/></svg>
     </button>
-  </div>
-
-  <div class="sensory-break reveal">
-    <video class="sensory-video" autoplay muted loop playsinline preload="auto" poster="beans-purple-poster.jpg">
-      <source src="beans-purple-bg.mp4" type="video/mp4">
-    </video>
-    <div class="sensory-overlay"></div>
   </div>
 
   <div class="roasts">
