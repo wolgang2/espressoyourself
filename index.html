@@ -230,10 +230,15 @@ main{
   font-family:'Space Grotesk',sans-serif;
 }
 .roast-card:hover{transform:translateY(-6px);border-color:var(--terracotta-dark);box-shadow:0 10px 22px rgba(23,19,16,0.18);}
-.swatch{width:32px;height:32px;border-radius:50%;margin-bottom:2px;}
-.roast-card.aurora .swatch{background:linear-gradient(160deg,#f6d488,#e6ab5c);}
-.roast-card.equinox .swatch{background:linear-gradient(160deg,#d97a3f,#8a3d18);}
-.roast-card.solstice .swatch{background:linear-gradient(160deg,#5c3a2b,#1c0f06);}
+.roast-photo{
+  width:60px;height:60px;border-radius:50%;overflow:hidden;position:relative;
+  margin-bottom:2px;box-shadow:0 1px 3px rgba(23,19,16,0.25);
+}
+.roast-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.roast-photo::after{content:"";position:absolute;inset:0;mix-blend-mode:multiply;}
+.roast-card.aurora .roast-photo::after{background:#eebf72;}
+.roast-card.equinox .roast-photo::after{background:#b15828;}
+.roast-card.solstice .roast-photo::after{background:#3a2416;}
 .roast-tag{text-transform:uppercase;letter-spacing:.06em;font-size:11px;font-weight:700;color:var(--text-soft);}
 .roast-card h2{font-size:clamp(18px,2vw,21px);color:var(--espresso-dark);}
 .roast-notes{color:var(--text-soft);font-size:13.5px;line-height:1.4;font-style:italic;}
@@ -387,7 +392,9 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
           <p>Buy 10 bags in advance &mdash; mix and match roasts, or stick to one &mdash; and pay <strong>$16.75</strong> a bag instead of $21, plus free local delivery.</p>
         </div>
       </div>
-      <div class="swatch"></div>
+      <div class="roast-photo">
+        <img src="beans-texture.webp" alt="" loading="lazy" width="480" height="480">
+      </div>
       <span class="roast-tag">Dark Roast</span>
       <h2>Solstice</h2>
       <p class="roast-notes">Cocoa, roasted almond &amp; a bold finish.</p>
@@ -406,7 +413,9 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
           <p>Buy 10 bags in advance &mdash; mix and match roasts, or stick to one &mdash; and pay <strong>$16.75</strong> a bag instead of $21, plus free local delivery.</p>
         </div>
       </div>
-      <div class="swatch"></div>
+      <div class="roast-photo">
+        <img src="beans-texture.webp" alt="" loading="lazy" width="480" height="480">
+      </div>
       <span class="roast-tag">Medium Roast</span>
       <h2>Equinox</h2>
       <p class="roast-notes">Citrus, honey &amp; a smooth finish.</p>
@@ -425,7 +434,9 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
           <p>Buy 10 bags in advance &mdash; mix and match roasts, or stick to one &mdash; and pay <strong>$16.75</strong> a bag instead of $21, plus free local delivery.</p>
         </div>
       </div>
-      <div class="swatch"></div>
+      <div class="roast-photo">
+        <img src="beans-texture.webp" alt="" loading="lazy" width="480" height="480">
+      </div>
       <span class="roast-tag">Light Roast</span>
       <h2>Aurora</h2>
       <p class="roast-notes">Toasted nuts, caramel &amp; smooth.</p>
