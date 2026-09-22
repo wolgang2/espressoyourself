@@ -94,8 +94,8 @@ header{
   position:absolute;top:clamp(14px,2.2vw,20px);right:clamp(14px,2.2vw,20px);
   max-width:112px;text-align:right;
 }
-.roast-card .commit-link{font-size:10.5px;line-height:1.3;}
-.roast-card .commit-tip{width:min(240px,80vw);}
+.roast-card .commit-link{font-size:11px;line-height:1.3;}
+.roast-card .commit-tip{width:min(250px,80vw);}
 .commit-link{
   font-size:13px;font-weight:700;color:var(--terracotta-dark);
   background:none;border:none;
@@ -140,7 +140,7 @@ main{
   flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:clamp(18px,3vh,32px);
   padding:6px clamp(20px,4vw,48px) clamp(14px,2.5vh,24px);
-  max-width:1080px;margin:0 auto;width:100%;
+  max-width:1240px;margin:0 auto;width:100%;
 }
 .intro{
   text-align:center;max-width:100%;width:100%;position:relative;overflow:hidden;
@@ -207,7 +207,7 @@ main{
 }
 
 /* ROASTS */
-.roasts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);width:100%;}
+.roasts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,28px);width:100%;}
 .story{
   max-width:620px;margin:clamp(8px,1.5vh,16px) auto 0;text-align:center;
   padding:clamp(10px,2vh,18px) 6px clamp(6px,1.5vh,14px);
@@ -221,10 +221,45 @@ main{
 .story-text{color:var(--text-soft);font-size:14px;line-height:1.7;margin-bottom:12px;}
 .story-text:last-child{margin-bottom:0;}
 .story-text-emphasis{color:var(--espresso-dark);font-style:italic;}
+.stockists{
+  width:100%;background:var(--card-cream);
+  border-top:1.5px solid var(--espresso);border-bottom:1.5px solid var(--espresso);
+  padding:clamp(18px,2.8vh,26px) clamp(20px,4vw,48px);
+  box-shadow:0 2px 10px rgba(23,19,16,0.08);
+}
+.stockists-inner{max-width:900px;margin:0 auto;text-align:center;font-family:'Space Grotesk',sans-serif;}
+.stockists-label{
+  font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--terracotta);margin-bottom:8px;
+}
+.stockists-heading{font-size:clamp(19px,2.3vw,24px);color:var(--espresso-dark);margin-bottom:16px;}
+.stockists-list{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;column-gap:12px;row-gap:38px;}
+.stockists-list li{position:relative;display:flex;}
+.stockists-list li a{
+  background:var(--terracotta);color:var(--white);border:none;border-radius:999px;
+  padding:10px 20px;font-size:13.5px;font-weight:700;text-decoration:none;
+  transition:background var(--dur-base) ease,transform var(--dur-fast) var(--ease-standard),box-shadow var(--dur-base) ease;
+}
+.stockists-list li a:hover,.stockists-list li a:focus-visible{
+  background:var(--terracotta-dark);transform:translateY(-3px);box-shadow:0 10px 20px rgba(23,19,16,0.3);
+}
+.stockists-loc{color:var(--tan);font-weight:400;font-size:12px;}
+.stockists-drop{
+  position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(-6px);
+  background:var(--espresso-dark);color:var(--white);border-radius:8px;
+  padding:6px 12px;font-size:11.5px;white-space:nowrap;box-shadow:0 12px 24px rgba(0,0,0,0.35);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity var(--dur-base) var(--ease-standard),transform var(--dur-base) var(--ease-standard),visibility var(--dur-base);
+  z-index:20;
+}
+.stockists-list li:hover .stockists-drop,
+.stockists-list li:focus-within .stockists-drop{
+  opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);
+}
 .roast-card{
   position:relative;
   background:var(--card-cream);border-radius:10px;border:1.5px solid var(--espresso);box-shadow:var(--shadow);
-  padding:clamp(16px,2.2vw,24px);display:flex;flex-direction:column;gap:8px;
+  padding:clamp(20px,2.6vw,30px);display:flex;flex-direction:column;gap:9px;
   transition:transform var(--dur-slow) var(--ease-standard),box-shadow var(--dur-slow) var(--ease-standard),border-color var(--dur-slow) ease;
   will-change:transform;
   font-family:'Space Grotesk',sans-serif;
@@ -232,13 +267,13 @@ main{
 .roast-card:hover{transform:translateY(-6px);border-color:var(--terracotta-dark);box-shadow:0 10px 22px rgba(23,19,16,0.18);}
 .roast-photo-wrap{position:relative;display:inline-block;}
 .roast-photo{
-  width:60px;height:60px;border-radius:50%;overflow:hidden;position:relative;
+  width:72px;height:72px;border-radius:50%;overflow:hidden;position:relative;
   margin-bottom:2px;box-shadow:0 1px 3px rgba(23,19,16,0.25);
   transition:box-shadow var(--dur-base) var(--ease-standard);
 }
 .roast-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .roast-photo-preview{
-  position:absolute;top:0;left:0;width:168px;height:168px;border-radius:14px;overflow:hidden;
+  position:absolute;top:0;left:0;width:190px;height:190px;border-radius:14px;overflow:hidden;
   border:3px solid var(--card-cream);box-shadow:0 14px 30px rgba(23,19,16,0.38);
   opacity:0;visibility:hidden;transform:scale(.92);transform-origin:top left;
   transition:opacity var(--dur-base) var(--ease-standard),transform var(--dur-base) var(--ease-standard),visibility var(--dur-base);
@@ -253,23 +288,23 @@ main{
 .roast-card.aurora .roast-photo::after,.roast-card.aurora .roast-photo-preview::after{background:#eebf72;opacity:.85;}
 .roast-card.equinox .roast-photo::after,.roast-card.equinox .roast-photo-preview::after{background:#b15828;opacity:.85;}
 .roast-card.solstice .roast-photo::after,.roast-card.solstice .roast-photo-preview::after{background:#5c3a2b;opacity:.72;}
-.roast-tag{text-transform:uppercase;letter-spacing:.06em;font-size:11px;font-weight:700;color:var(--text-soft);}
-.roast-card h2{font-size:clamp(18px,2vw,21px);color:var(--espresso-dark);}
-.roast-notes{color:var(--text-soft);font-size:13.5px;line-height:1.4;font-style:italic;}
+.roast-tag{text-transform:uppercase;letter-spacing:.06em;font-size:12px;font-weight:700;color:var(--text-soft);}
+.roast-card h2{font-size:clamp(21px,2.4vw,25px);color:var(--espresso-dark);}
+.roast-notes{color:var(--text-soft);font-size:14.5px;line-height:1.45;font-style:italic;}
 .roast-origin{
-  font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
   color:var(--text-soft);margin-top:1px;
 }
-.roast-desc{color:var(--text-soft);font-size:12.5px;line-height:1.55;flex:1;margin-top:3px;}
+.roast-desc{color:var(--text-soft);font-size:13.5px;line-height:1.6;flex:1;margin-top:3px;}
 .roast-foot{
   display:flex;align-items:center;justify-content:space-between;margin-top:4px;
-  padding-top:12px;border-top:1px solid var(--cream-warm);
+  padding-top:14px;border-top:1px solid var(--cream-warm);
 }
-.price{font-weight:700;font-size:17px;color:var(--espresso-dark);}
-.price-size{font-weight:400;font-size:11.5px;color:var(--text-soft);}
+.price{font-weight:700;font-size:19px;color:var(--espresso-dark);}
+.price-size{font-weight:400;font-size:12px;color:var(--text-soft);}
 .order-btn{
-  background:var(--terracotta);color:var(--white);border:none;padding:10px 22px;
-  border-radius:999px;font-weight:700;font-size:13.5px;cursor:pointer;
+  background:var(--terracotta);color:var(--white);border:none;padding:11px 24px;
+  border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;
   font-family:'Space Grotesk',sans-serif;display:inline-block;line-height:1.2;
   transition:background var(--dur-base) ease,transform var(--dur-fast) var(--ease-standard),box-shadow var(--dur-base) ease;
   will-change:transform;
@@ -381,6 +416,31 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
   </div>
 </header>
 
+<section class="stockists">
+  <div class="stockists-inner">
+    <p class="stockists-label">Also Available At</p>
+    <h2 class="stockists-heading">Find Velvet Mountain Around Canton</h2>
+    <ul class="stockists-list">
+      <li>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Willow+Bistro%2C+1212+30th+St+NW%2C+Canton%2C+OH&amp;query_place_id=ChIJE431g_jQNogRW3uheU2x5QA" target="_blank" rel="noopener">Willow Bistro <span class="stockists-loc">&mdash; Canton</span></a>
+        <div class="stockists-drop">1212 30th Street NW, Canton, OH</div>
+      </li>
+      <li>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Yoga+Bar+and+Cafe%2C+2255+Greensburg+Rd%2C+North+Canton%2C+OH&amp;query_place_id=ChIJ4VJdHGTVNogRELwk68EakLA" target="_blank" rel="noopener">Yoga Bar &amp; Cafe <span class="stockists-loc">&mdash; Green</span></a>
+        <div class="stockists-drop">2255 Greensburg Road, Green, OH 44720</div>
+      </li>
+      <li>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=The+Cake+Lady%2C+1104+S+Main+St%2C+North+Canton%2C+OH&amp;query_place_id=ChIJYTamEm_RNogRDWR6YdytAIA" target="_blank" rel="noopener">The Cake Lady <span class="stockists-loc">&mdash; North Canton</span></a>
+        <div class="stockists-drop">1104 South Main Street, North Canton, OH 44720</div>
+      </li>
+      <li>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Anthony+Petitti+Organic+Greenhouse%2C+5828+Columbus+Rd+NE%2C+Louisville%2C+OH&amp;query_place_id=ChIJsQW2KI_ONogRMWy8Gu7IChI" target="_blank" rel="noopener">Petitti&rsquo;s Organic Greenhouse <span class="stockists-loc">&mdash; Louisville</span></a>
+        <div class="stockists-drop">5828 Columbus Road NE, Louisville, OH 44641</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <main>
   <div class="intro">
     <video class="intro-video" autoplay muted loop playsinline preload="auto" poster="astronaut-bg-poster.jpg">
@@ -396,6 +456,13 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
       <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M19 6a9 9 0 0 1 0 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55"/></svg>
     </button>
   </div>
+
+  <section class="story">
+    <p class="story-label">Our Story</p>
+    <h2 class="story-heading">Velvet Mountain Coffee Co.</h2>
+    <p class="story-text">Velvet Mountain Coffee Co. was founded right here in Canton, Ohio by Tommy B., who&rsquo;s spent a lifetime learning what separates a good cup from a great one. Every bag starts with beans sourced to the same standard: pesticide-free, mold-free, organic and fair trade &mdash; grown by farmers paid what their work is worth.</p>
+    <p class="story-text story-text-emphasis">Velvet Mountain was created to offer thoughtfully selected coffees that transform ordinary moments into meaningful experiences.</p>
+  </section>
 
   <div class="roasts">
     <div class="roast-card solstice reveal">
@@ -478,12 +545,6 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
     </div>
   </div>
 
-  <section class="story">
-    <p class="story-label">Our Story</p>
-    <h2 class="story-heading">Velvet Mountain Coffee Co.</h2>
-    <p class="story-text">Velvet Mountain Coffee Co. was founded right here in Canton, Ohio by Tommy B., who&rsquo;s spent a lifetime learning what separates a good cup from a great one. Every bag starts with beans sourced to the same standard: pesticide-free, mold-free, organic and fair trade &mdash; grown by farmers paid what their work is worth.</p>
-    <p class="story-text story-text-emphasis">Velvet Mountain was created to offer thoughtfully selected coffees that transform ordinary moments into meaningful experiences.</p>
-  </section>
 </main>
 
 <footer>
