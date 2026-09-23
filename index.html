@@ -94,57 +94,6 @@ header{
   font-size:clamp(11px,1.3vw,12.5px);color:var(--text-soft);line-height:1.3;
 }
 .logo-vmc-mark{width:clamp(110px,15vw,140px);height:auto;margin-top:2px;}
-.commit-wrap{position:relative;display:inline-block;}
-.roast-card .commit-wrap{
-  position:absolute;top:clamp(14px,2.2vw,20px);right:clamp(14px,2.2vw,20px);
-  max-width:130px;text-align:right;
-}
-.roast-card .commit-link{
-  font-size:11px;line-height:1.2;
-  background:var(--terracotta);color:var(--white);
-  border-bottom:none;padding:6px 12px;border-radius:999px;
-  display:inline-block;
-}
-.roast-card .commit-link:hover{opacity:1;background:var(--terracotta-dark);}
-.roast-card .commit-tip{width:min(250px,80vw);}
-.commit-link{
-  font-size:13px;font-weight:700;color:var(--terracotta-dark);
-  background:none;border:none;
-  border-bottom:1px solid var(--terracotta-dark);padding-bottom:1px;
-  font-family:'Space Grotesk',sans-serif;cursor:pointer;
-  transition:opacity var(--dur-base) ease,background var(--dur-base) ease;
-}
-.commit-link:hover{opacity:.65;}
-.commit-tip{
-  position:absolute;top:calc(100% + 12px);right:0;z-index:20;
-  width:min(280px,80vw);text-align:left;
-  background:var(--white);border:1.5px solid var(--espresso);border-radius:10px;
-  box-shadow:0 10px 24px rgba(23,19,16,0.22);
-  padding:16px 18px;
-  opacity:0;visibility:hidden;transform:translateY(-6px);
-  transition:opacity var(--dur-base) ease,transform var(--dur-base) ease,visibility var(--dur-base);
-}
-.commit-tip::before{
-  content:"";position:absolute;bottom:100%;right:22px;
-  border:7px solid transparent;border-bottom-color:var(--white);
-}
-.commit-tip-title{
-  font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em;
-  color:var(--espresso-dark);margin-bottom:8px;
-}
-.commit-tip p{font-size:13px;color:var(--text-soft);line-height:1.5;font-style:normal;}
-.commit-wrap:hover .commit-tip,
-.commit-wrap:focus-within .commit-tip,
-.commit-wrap.tip-open .commit-tip{
-  opacity:1;visibility:visible;transform:translateY(0);
-}
-@media (max-width:640px){
-  .commit-tip{right:auto;left:50%;transform:translate(-50%,-6px);}
-  .commit-tip::before{right:auto;left:50%;margin-left:-7px;}
-  .commit-wrap:hover .commit-tip,
-  .commit-wrap:focus-within .commit-tip,
-  .commit-wrap.tip-open .commit-tip{transform:translate(-50%,0);}
-}
 
 /* MAIN */
 main{
@@ -188,14 +137,20 @@ main{
   font-family:'UnifrakturCook',cursive;font-weight:700;
   font-size:clamp(38px,5.6vw,64px);line-height:1.2;color:var(--white);
 }
+.intro-tagline{
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:700;
+  font-size:clamp(14px,1.8vw,17px);letter-spacing:.04em;text-transform:uppercase;
+  color:var(--white);margin-top:14px;
+}
 
 /* ENTRANCE MOTION */
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(14px);}
   to{opacity:1;transform:translateY(0);}
 }
-.brand-line-top,.intro h1{animation:fadeUp .7s cubic-bezier(.16,1,.3,1) both;}
+.brand-line-top,.intro h1,.intro-tagline{animation:fadeUp .7s cubic-bezier(.16,1,.3,1) both;}
 .intro h1{animation-delay:.08s;}
+.intro-tagline{animation-delay:.16s;}
 
 @keyframes revealUp{
   from{opacity:0;transform:translateY(18px);}
@@ -214,7 +169,6 @@ main{
   .reveal.in-view{animation:none;}
   .roast-card:hover,.order-btn:hover{transform:none;}
   .order-btn:active{transform:none;}
-  .commit-tip{transition:none;}
 }
 
 /* ROASTS */
@@ -245,7 +199,15 @@ main{
 }
 .stockists-heading{
   font-family:'UnifrakturCook',cursive;font-weight:700;
-  font-size:clamp(24px,3vw,32px);color:var(--espresso-dark);margin-bottom:16px;
+  font-size:clamp(24px,3vw,32px);color:var(--espresso-dark);margin-bottom:10px;
+}
+.stockists-count{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:600;
+  color:var(--terracotta);margin-bottom:4px;
+}
+.stockists-note{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:11.5px;font-weight:400;
+  color:var(--text-soft);margin-bottom:18px;
 }
 .stockists-list{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;column-gap:12px;row-gap:38px;}
 .stockists-list li{position:relative;display:flex;}
@@ -287,8 +249,14 @@ main{
 }
 .commitment-price-new{font-size:clamp(36px,5.5vw,48px);font-weight:800;color:var(--white);}
 .commitment-price-unit{font-size:14px;color:var(--tan);}
+.commitment-espresso{font-size:13.5px;color:var(--tan);margin-bottom:14px;}
+.commitment-espresso strong{color:var(--white);}
 .commitment-text{font-size:14.5px;line-height:1.65;color:var(--cream);}
 .commitment-text strong{color:var(--white);}
+.commitment-tagline{
+  font-size:12px;font-weight:600;color:var(--tan);margin-top:14px;
+  text-transform:uppercase;letter-spacing:.05em;
+}
 .roast-card{
   position:relative;
   background:var(--card-cream);border-radius:10px;border:1.5px solid var(--espresso);box-shadow:var(--shadow);
@@ -329,10 +297,10 @@ main{
   color:var(--text-soft);margin-top:1px;
 }
 .roast-desc{color:var(--text-soft);font-size:13.5px;line-height:1.6;flex:1;margin-top:3px;}
-.roast-foot{
-  display:flex;align-items:center;justify-content:space-between;margin-top:4px;
-  padding-top:14px;border-top:1px solid var(--cream-warm);
-}
+.roast-foot{margin-top:4px;padding-top:14px;border-top:1px solid var(--cream-warm);}
+.roast-foot-top{display:flex;align-items:center;justify-content:space-between;}
+.roast-anchor{font-size:11.5px;color:var(--text-soft);margin-top:8px;}
+.roast-anchor strong{color:var(--terracotta-dark);}
 .price{font-weight:700;font-size:19px;color:var(--espresso-dark);}
 .price-size{font-weight:400;font-size:12px;color:var(--text-soft);}
 .order-btn{
@@ -420,6 +388,7 @@ footer{
   font-size:12px;color:var(--text-soft);
 }
 footer span:not(:last-child)::after{content:"·";margin-left:20px;color:var(--tan);}
+.footer-trust{font-weight:700;color:var(--espresso-dark);}
 footer a{
   text-decoration:underline;text-decoration-color:var(--tan);text-underline-offset:3px;
   transition:opacity var(--dur-base) ease,text-decoration-color var(--dur-base) ease;
@@ -453,6 +422,8 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
   <div class="stockists-inner">
     <p class="stockists-label">Also Available At</p>
     <h2 class="stockists-heading">Find Velvet Mountain Around Canton</h2>
+    <p class="stockists-count">6 Locations and Counting</p>
+    <p class="stockists-note">Bags available for in-store pickup at each</p>
     <ul class="stockists-list">
       <li>
         <a href="https://www.google.com/maps/search/?api=1&amp;query=BAM+Healthy+Cuisine%2C+2185+E+Maple+St%2C+North+Canton%2C+OH&amp;query_place_id=ChIJ3daMU93TNogRttPjrgFAUfQ" target="_blank" rel="noopener">BAM! Healthy Cuisine <span class="stockists-loc">&mdash; North Canton</span></a>
@@ -490,7 +461,9 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
       <span class="commitment-price-new">$16.75</span>
       <span class="commitment-price-unit">/ bag</span>
     </div>
-    <p class="commitment-text">Buy 10 bags in advance &mdash; mix and match any roast, or stick to one &mdash; and save <strong>$42.50</strong>, plus free local delivery on every order. Just say yes when you check out.</p>
+    <p class="commitment-espresso">Pulls beautifully as espresso &mdash; about 18 shots a bag, <strong>under $1 each</strong>.</p>
+    <p class="commitment-text">Grab 10 bags whenever you're ready &mdash; mix roasts, match your mood, no pressure to pick just one. You'll save <strong>$42.50</strong>, delivery's always free, and getting in is as easy as saying yes at checkout.</p>
+    <p class="commitment-tagline">Once you're in, that&rsquo;s your rate for good.</p>
   </div>
 </section>
 
@@ -503,6 +476,7 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
     <div class="intro-content">
       <span class="brand-line-top"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu8AAAFGCAYAAADaeHHqAAAzv0lEQVR42u3d3XWrxsLG8Sfvyr05FZhUYFKBSQVWKjCpYCsVbKWCKCsFbPkyV5FvcrtRBcEVRK7gSBXkvWA4wgjxOXz/f2t57cQfAgYGnhmG4Zu//vhdAAAAAMbv/ygCAAAAgPAOAAAAgPAOAAAAEN4BAAAAEN4BAAAAEN4BAAAAwjsAAAAAwjsAAAAAwjsAAABAeAcAAABAeAcAAABAeAcAAAAI7wAAAAAI7wAAAAAI7wAAAADhHQAAAADhHQAAAADhHQAAACC8AwAAALDpW4oAACDJz/x/JOlEsQAA4R0AMA4rSYGkpxs/f5W0lnSkqABgHBg2AwDL40jaSfqzILjL/CwyIR8AQHgHAAwQ3ENJzxV//86E/ICiAwDCOwCgP57invSHBn/7RdKWIgQAwjsAoJ/gHkq6b/EZnxQPtwEAEN4BAB1ZmeB+Z+GzngnwAEB4BwB0I1A8Zv3O4mc+S9orHj8PACC8AwAsBfcvHX32k+LefAI8ABDeAQAjDu6JBwI8ABDeAQDt7HoI7gR4ACC8AwAsBPfnnpeZBHiP4gcAwjsAYLzBnQAPAIR3AEANjuq9NbUrdwR4ACC8AwDKg/vjSNYnCfA+uwYACO8AgAvXBOWHka3XnaSvime8AQBY9C1FAACT5MneW1O7ksx4s2N3AYAd9LwDwPSsJhDc0wF+wy4DAMI7ACzRWtKfEwnuic+i9x0ACO8AsCCOCcC/TnT9nyXtxcucAIDwDgAz52ocU0G29STexgoAhHcAmDFfUqT2M8r8JunHEWzPg6SjmAseAAjvADAza8VTLrYZ3/4u6QfzWeFItutO0t9iKkkAILwDwAw4iseHtx3f/psuU0omjYEx+SIeZAUAwjsATFgStp9afEa6t/2UahCsR7i9z4qHBbnsegAgvAPAlARq/8bUbG97ulEw1uklH0yAX3EIAADhHQDGzlE8fORLi4B91nVve3YZY3aneP76LYcDABDeAWCsPMW9zm2mgXzVZTrJouVMwScxjAYACO8AMEIbxbOu3Df8+7Pi6R9Xyu9tnyqG0QAA4R0ARsNV3Ev+ucVnJL3t+5mWUTKMZide6gQAhHcAGMhaca/yY8O/b9rbfppoeSWz0fgcOgBAeAeAvriKe9t/VfOHUtv0tkcTLrt7xS+r2nAYASC8AwC6tla73vZk3vaVmvegRzMox89mOzwOKQCEdwCAbb4Jm01728+SflH5TDJVnCS9zaBMHxQ/5Lvh8AJAeAcA2OAoftDyq5q9cCkd2m2G1O2MypheeACEdwBAaxtJRzWft/3FBNKN7D9kulc8BGcu6IUHsDjfUgQAWnAUDw3xzJeT+tlJcc9opHjIx2nmZRGYENlkzvaz4l7xbcfldFI8/v7PmZX9Z1P+gdoPLwIAwjuA2QX2lQmBZUNCnlL//WaC1U7zeHjSRmh/N+XRdWhP20v6SdKXmR2XyYw0L+bYPFFVAcwRw2YA1AntG8VDQr6o/ljuB0mfFA9ziEzodSZcHr5pjHxpENwPJkC76mZ4TJmdWf4cPZtjdE2VBUB4B7D00P5Zzecozwb5L+YzdybETi20f1W9qR/PinuFvzefsRt4O+Yc4O8Uz/BzFC93AkB4B7AggeXQnheyniX9M4EQHyi+Y1A3tL/p0suefMZY7Exj4n2mx28ylCYkxAMgvAOYs5Uuw2PuelpmEuK3GtdwmkD1hwq9SfpZ0neKH+TdabxjsCOzjr/M+Hh+NCF+7A3EMo5phGwUP7sQSfo39XU027jStIekASjwzV9//E4pAEgkweBx4PU4Kx6zvBswJK1NcK86nv3NrO/ehKgpclPbfTfj4/xFl6FgUwjsgfmq+5zJqzkedwJAeAcwK64JM88jW6+DCZPRCMPr2QSj0Px7mtkxESjuwfVnHORfTLANRxraN4of8rbRGN6q31mNABDeAXQUENbma8wB7ZeOg8fKhNWnCo2JJKxHCzpO/NSXN8MwfzBBOZx5nSTEA4R3ABMWqPn85EN4l72X8CQhNAmkdzeWdzTLC8XLf7IB0zNfrvn3cQbb9WaC7X6gcLsyy7+fUF0CQHgH0DFf4xjX3tRvqj83+sZst5sTjN7MZ4X6+FbYE4dKbRvFMxPNQTJePFT3Y+M9E9ofB9jGgGMdILwDGCdX4xzX3gQ9h+PkSPrvDLfrXZfhUqHFsOvI3rj2ps6mLu05fAHCO4Dx2Gj849qbeDHbdWIXdxbGvdT/e7pMQZj3s7sFlMlBduaMDxT3to+lzOiFBybiW4oAmLWV+hlDO5RnXR423bO7K/EV34VxM2F8SQG8TWNxY6H8t6o/7WPXnhQPD6IuAYR3AAPwNMwY2iHcSfpT9BymObp+oNSdcSOuazamLHVMnXymLgEgvANIB4SNhh1DO5Ql9xw6iu9AeAvd912G9o3aP1uxNp9zR10C0BZj3oH5mFpA6FKTGWnmGOi9nP/2zb+u6Im/xdYD0b7GOUSmDnrhAcI7AMt8xW+JJIh1E8CWFPLTwd41P3tYUFkcdJnnvW2ZbjWPmZ0kZqQBCO8ArHBNQHiiKArRC2+vkZgO9nnHo1vhmB1jI/PV1CUbDb215nsHjF54gPAOoAHHBITPFEVl9MKPt0Hg6PJwrddjuH9TfMdqLzsvYfK1jDtg9MIDhHcANQQa19zQU0Mv/Pi5JsT75svWsJ0303hLvk4W13er5d0BoxceILwDKOBr+g++jQW98NM8/n1dprwsqgdnxVM6Hs2/UUf72hF3wOiFBwjvADJcDderl/RUznXqQXrh51E/XPPfUY/7MhB3wNJ40zFAeAcWz9EwvXpnxb1oG13GAf8743KmFx51+OIOGHUJGNj/UQTA6AQmOPcZ3M+SflHcixnIzgN8U3Av6asJZA6HHgpCe2iOFYI7dQkgvAP4X0CIJH1Rf7fj3yX9ZEL7Rte3vb2FlP0nU/Y+hyFSXMUzyHyV9Njzss+KHwr9mboEgPAOjC8ghOq3Vy8d2ne6PVbVW9B+oOcQ2dD+j/p/0dIhVTdXEz0Wk7q0py4BhHdgThwTFP9Rf71650xoL+MtcL98UjxsaMUhSmjv0Yuk73WZLz5pUK8nXJ5P1CWA8A7MxcZc1PqaySU9pn1X4++8he6fO0l/ip5DQns/9fI/ip81iTI/9zX9GW2oSwDhHZi0QJeHUfu4KKdD+0b1p3JzF76/6DkktHchGbbmaDnTlSZ1ac1hBxDegSnwdXkYta/Xp//WIrQn7tl1/+s5DGnMENpbOkj6QfXvgM2pLv1q6pLHYQgQ3oGxhvZQ/T6M+iLpO9l5acqZXfg/j6YBtqEoCO0N6uT3qfNBVdGM69Lfpi45HJYA4R0YU0joc4q5gwkIgezN0x6yKz+4UzzkKRJT4RHayxu+v5mGdNAwiJ/MZ8xVUpdWHKIA4R1YUkhIbsX7st9Ttxa973kexLSSU+CbBmif9TE9DevaQkN6I+ltxvvoXgxLAwjvwEJCexISkoDShaN4wKxIMq1kQFGMMrT3eefrVR/Hs58sfe7JbM/bzPfZozl/bmgQA4R3YG6h/az4rYvJsru20/Te8tinO8UPIofiIbyhBaYx1Vdofzd14zvFQz+6akQnAf5lAfswGUpDgxggvAOzCO3JtI/bnrd3q7iXH7clD+HtRM9hnxxd3pvQx2xOyVj271N18djDdp5MoP1Z8x/Kdp9qEPsc4gDhHZhaaJfiHjdPw84JvZP0oxgDX+ZZDDfqqy4mwflzx6H9bOrgj6axsNZwM8FsTaA9LKRB/NWce1wOeYDwDkwhtB90ma3iOIJy2JtGxIFDolAyn/VR9Bza5pvj8B/Fzxx0+bKzV10ePg3McscgMuXwk+KhO0toEEdiPDxAeAdGHtqTGWSOIyuTJJD+qPk/RNfWveKew1CMh28rMAHuq+K3dXYd2P+jeBz7TuN9A+rOnKOWEOLT07QGVAcs2Td//fE7pQDkh/ZNz4Fd5gK80bTevuiZi+lKvJG1zIvsvDxrSfVwbY6vrnvY9+ZryvtmZcrrcQHHxrs5LkKqCQjvwLL5Jjz3ffE7m+VuZxC2VqYcnzicbu7rrfkixF9zzDEUdFgPz6mwvp9hGXomxD8v4Hg5mHMnIR6Ed4DQTpCzIAnyvuIXG+FiindZuq6DgTlmuuhlfzMBb6fhHjYdoiG0NuU697tiL7rMOgQQ3oEZC8zFbYhgubSLjZMJ8wyxuYT4QMvsOfTU3ZCrpHc91PSHw9g61wWa/5AaQjwI78CMQ+RmoAD5KjuvTZ86NxPm7xZeHku5/e+mgqTN+nc2ZZd8RZzqbpb/Rt3d4RgDhqaB8A7MKLSvzdcQFy3GZhbzUkF+yWF+jo07z4R1X/buchHW258PVxruziMhHiC8Aze5GraniVkR2oX5lZYxe0bW1G//J/tuJTs97G8moCdh/UgVsbqvAs33AVdCPAjvABekyqF9Ix5ItLk/k68lhfkphHgn1dhK/r1rWXeiTFhHP/sxUNwbP8dnUs5m2zgng/AOjMxKw851TGgnzHcROrYaR8+hr/hulpv67/sW25WE9GPqv08c3qOoX4Hm2RvPORqEd2AEHA37EOrYAhZhnhBvg6vLWHVP9XrTk2CeCM2/x1RQp55M49waaJ698YR4EN6BAbipC8tQDzgS2gnzcz7mXPNVhCDerDz91Pc9E5TLnFKNojDVGOqrTgWaX288IR6Ed6AHnoZ/gyChnTC/pBCP6hxdxv67qa8ue64P+vicwLHj7Qs0v954QjwI70AHVhp2PPscA5OXChuO+V4SNvJEme0Ozb8nTWu6Pk/zmZqSED+eY8kbSaB918epNLsK8766fTMuIR4gvGOCHA0/nj05oW/NCX2KAckzgTwJGm6H5XnIBP3k36PGO2vKHML82RyfWzGVYpdcTe8FY2+6vG027PA8vdZ85o0nxIPwDjS4QK4V9+oMeXGc4gnc0cdp+8Y2TOTdhMtTJuCPKdxPPczzmni7fNmdt37oRt4+FeZPHdSdYATnbkI8CO9AjxfJtaSngddjSm9EdTJBc+o9X++pIH/UdQ8+Yb5eiN+KN5ASQm97TQV52429lSm/pxmU09TvvoLwDlgXaBy3XKcSdnxdbt0/LOxYSYblhLruvSfMT78xOnRDODkX3S9w+99MOLUd5J1UQ2jq5yueMQHhHYvmavipHqdyMnYzgf2OwydX0msfZYJ916F1KmH+TZfeQ3xsDAea50uJxhbkPV0ecp1yA4kQD8I7uFASZG4GwkDL613v6mIb6eOQnHTQX1KYZwjA9cPwh5xjo+4+dwrOeXkN8qmE166CvK95zFbDMyYgvGPWF8q1xjE0ZqdxDiHwNI9eqSk6qLuHaMca5pc6Q01Sz47mPBCN4PzoZYK+l/r+mIJtEuRtN/xWmv74+FdTl0IBhHdMmKvxzBqThJTTyMqIwD5+b7oehnNqEfrSYX4sYYXgMV5JiE9/PYzkmNnL7qw1ji4z+0w1yB9SDRyA8I7JWGkcvSivutzuHVv5JF+MX582G8NxkiD/eSQNlS3BYxL8EQX6JMjbPG6mHuTH3GkEwjvwvxNtoOFnakhOmDuNaygAgX2Zkl770Px/9t+0f0fWKEmCx5HdSKCvcdzsU1+2g3yg8b27omqZbMW0rSC8Y0QXi0DDP4A6xl52AjvKpN9I+2mk6zjWO1ioF+iTf/vqXOkqtLqpIP8wwfq+E3e2QHjHAByN4wHUZNaMvcbTOzi2wJ70/CZONS6keb/rt7jgujnfY5z/dIz1rhbqn7/9VJh/7OnY2ZtjJ7K8Lcn59om6BMI7cM0zgX3IYHpOXQTCBQf27EOUUSqkhxM9vvyc/3Z0mYnjkSo4Gi+yPzQCw9Y9T/30znf5MqgpBnkeFgfhHdY5GsdY9i5mNmjbkAnU/Uw6b7o8EBnK3vSFU29EOrr05nsa57R6S0AP4jy5mUDf1R3WQyrI2zyvTzHI8/4FEN7RWnLiG3Ise1c9NG0D+6qjhszBBPV0WEfzcO+nQr0jXnbVVwN7R1HMkq+Pw23uOjh+kvN9V9ez1UQa+GN+HwkI7xgZV5dhMUP1sidjI7cjCexdlcmbLi+ISb7Qz/50cwI+wd6eZKaaHcf17BvJXirMP1g8fvYdhldPcSeMP4F6z50tEN6Ry9Fl+MdQJ7KuHmZqE/BWFsvkPRPUQw47gv1CjO3uGbq9liRhPgn0bXu5u742JOd6X+MfXsOsTyC843/DP4Y6YY0tsDuyM4POORXQk8B+4nAj2GN0z62gv3qThHlPze9g9jG7mJ8K82Ot29zZIrxjYVYadtxfMlRkTCedto2Yt1RYjziZLj7Yp/9lGszb4WMvZqtZsnSYd1V/Jqm31PHT1TnXyYT5Mdbnt1SQp0FMeAeB3ZpD6iR7HEmZeGo25eU5FdKTfzlhouxYS0KAQ7AnyKOwriT1Iwn3Vc7PybDEro+hZL38kYZ57mwR3kFgb30xDkd2EnF1Gdtf9aT7lgnrRw4tWA4rbupfV8ue7pIgj7zzdjrMexXO36+pa1CX52wnE+bHNMyG9zAQ3jEBjoad07aPW5htGjJBhXLJ9qqHHFYYkK+PPfVLC/YEeZTVD0/lw276vDalw7yncbxUjnpEeMcIT16+Cad9t/iTh02TkHsaYWNmreJe9oM+Dn85ckhhIg31bKB3NO+3z6YDyBjPNxgHL1UnfF0PT+treE3eddofSeOboTWEdwwU1v0BLtTvqaAejjjoOopnI3i+EdTTXwDBfpoOqSBPXUaVOpEO9o8arkfaUzdz41OPCO8grH+YQWXMYf1WmSm13kcOJeAq2Puax1SX50zHAiEEVaQbuEcNN6TEkf258ZtI35UIRa884R2VTyTpCtz3BfWgj+O9qbjAMoOMM/Fgz7MrmEse8AYM9G+ZRjGZgPCOVIVM/r3vuVJGYl5yAPWDffLvlIbicM7DnAK9N3BuCMUdbcL7Qiqdn6pwjwNUuChV8QDAhiTMZwP+FII9z8FgDnx9HArn9hTq33X9JnEQ3idfmZKw7quf213vpiWctIi5GAEYw7kwG/D7ChcEelD3Lp2GfTSqD5kwf2I3EN7Hys0E9YceKsdJl6kNk8AOAFPi6eMwnPS/Y5rL/qCPHSKcbzFl2cZ0l/XuLRPmjxQ/4X3osJ582exBSnrPk3Cu1IWCCwaAJfFvhHxXw/fcM4Yec693fk49bBvu01NO70XPPOG9BxsVv/Cn6CSfHKDHVMszSn2fYA4AzYOGa77y/ruvoH9IhRLCPOYqaUQnDer096R6Q3PeJO3MF0Ge8N7ZAeulLgrZMF70PQDAeMJ+NuTn/X+b8P+WCjbA0oN+Xv1L2xLeCe8AAHQtL+xHhBAAXfqWIgAAoJGjuMsKoGf/RxEAAAAAhHcAAAAAhHcAAACA8A4AAACA8A4AAACA8A4AAAAQ3gEAAAAQ3gEAAAAQ3gEAAADCOwAAAADCOwAAAADCOwAAAEB4BwAAAEB4BwAAAEB4BwAAAAjvAAAAAAjvAAAAAAjvAAAAAOEdAAAAAOEdAAAAILwDAAAAILwDAAAAILwDAAAAhHcAAAAAhHcAAAAAhHcAAACA8A4AAACA8A4AAACA8A4AAAAQ3gEAAAAQ3gEAAAAQ3gEAAICJ+pYiaMXv4DPDgdYhZHcCpRxJ3kTqmT+R9QQAEN57sZb0awef+7Ok7QDrUGe5wFKFkh5a/P27JLeH9TxJumvx9z9K2rO7AWB8GDYzPs7ClgtMSdvgfd/Tet4NvJ0AgI7Q897czgReV/Ft9Ca9cWdJkeJessh8b9tgHaTLLfLHmss+mq8tuxQotTJ1zdFl+MzjxLcpex46cT4AgPH65q8/fqcU7HAlbSQ9V/jd38zvnjpaF0dSoNtDan42wf/EbgOs8CV9rfi7P6jbMeVV1+VsGiMhuw8ApoNhM/YcFY9Bf6/wu10Gd+nSc/aW87MX8zOCO2BPKOlQ8Xe9jtel6udHBHcAILwvXRKay6x6WBdH+UN5NuwmYFDBxD8fAEB4n5Wd4tvRQ19c8xoIB8V3CADYV3Xs+4O66313Vf35G49dBgCEd8S977sKF3m/4/XY3GhYABjeegSfe8duAADCO2LbCr8TdLh8X9dT0r0T3oHRWKmb6VlXNX/fYVcAAOEd8dCUl5LfeVZ3cynnNQwI7kB3vJq/fyf7z77kNdptrzcAgPA+W1XCctDBch3lT1dJeAe64zT4m3UPjfYzuwYACO+oJlT51HHrDpabdwF/FQ+qAn37reTnth9cXTVotPvsJgCYFt6w2q2dimeguDNhe2dxmXkNgm3J33jqZ+yrkworpwrr5ar90KKwxu+2Xd5JlzflVimDtp/b135Ll0vZfluZQHhqUP5NJGXgmgbqZqC67t7Yby8qfnHbWnbuwAW6fgD1VdJe0qeRnA898+XeOHaP5ivS5e3PNo+RLut100bQsWA7fUvrZrtcwhvrGqS2Jeyhvrlm/U8d1PvkPO2b8t33cE1sKlLxe1uq7ueyz7G9DU2XB8J7L+F9o+JxqGuL4d1X/oOqYUnF/nug8jmVbHuk9jNi/KxqDxDbKofvSy6mx4bblP3cIfdbVHBMbfRxqsLPPa9bqGFePHSr0bctCe8rS8vP+5x9i/W2WS5rs35l4/GzHR1v5vywa3GR76Ner3X7bdZlzjeCVZ3PPDRoPLQpl7xz6iaz//qu90eL19FtpsF77rCTZCfpqeVnvBacR+rs53OqsdLHNryqn3fezBLDZrpXFhwfZO/WddBg+ScNNy7W7WEZpxq/17YczhWWd5zBMe2XHM9DckZUTpH5eiv4nTu173l3cy6eZ3NRDQeqg65Z/j8mCN03+IwHE2D/a85jTof1fyg21u+xQXA9WV5nd+BydC1+zqecOuqNeP/b+vw7c75whNGj5717O9MrcVcSusOWy3F03cN3rnBSP5ow5psTlz+CAJbuNfBT/1ZZr+ROw1H1emHT5bBS9RfuvCnu4Tyq2q1+P2e7bh0bB/PZoa57QyLFvYHJ53gj2m9DHzP7kYSHU6oB/aWk/u9aLHuV8719jfOGbesK57y6PplyCmru32OqntQ5v71lziNRwe9uze8l9fmxwmdHJeenbeqc5FX4zGfzmdua5bKquM6HVDnklf/9TM4fm4I6FnVUV/apc7hfod6cU/siKrnGpfdzsoz7CgHerxH8g9Rx5Jd8/nvquN8LjX3z1x+/Uwrd26p83Ol3atcru9b1bdYXNevVC0rCxkuDdfV03Tv4i+qNVfQlfS34+W+y9xBwWRk0Wf9b5ZJ3W/OnBoEu7xjIrq863m//5pysdyX79LHgRL/r+JiyJczZjh9SF9ZTyUW5Tf2PcgJpepjHseSC+o3lzornCg3svSmTUJfxy1VCpI19XFZPfmwZLBzz93nbUjasrqhxGFYIyU3X3VH+8IdXcy4sC3J1671bcpz8UrKunzqo947iuzy3ArPTw3nEMcfHfUHDz+shjzTNDkXXzh80zJDGWaLnfTzhPbBwQcpbbhP7kuC6a1gJ92o3vi+s8Pk2Q4hfcoE5WVhO3oX8oGY9sWWhYNNiHZv26vsloXRTENiOFdY5VPW7JH07ZY6nTyX1t0nD08vZN++ZY6EsvPcV3N/MNoYl4WWt4jHTn034CyzWuTrnmSr7Pe+4PKh57+3RnM9/rbAP/AbLOZnPf8r5vCbnuVXJOpSdW8vqvav2Y8WrXEMTXUwucWs/FNVXG+F3UyGPPKv5BAA7XT/rdyC428WY934cVf7SpnWLz/dzKvtbiwvFqaNy2Exsv5Wtb2BhGSuLjS4NvN+czP/3MUXpWMrKKQmJ246OpcBCmXiW9kNRGHsxyym7gJ/M8fa9ip9BeVZ3b6k+aZyqnM/vTCeGM2BZtLn2ND0nuR2H97Fcv049fsbnFnXsKBDeZ6Ksxd7mwTUbF/C+Lj5vlk+4Qza6bDxsnL1gJEMKxmRv1qtuCNz3tG5jeBHRQ4Vj6dBB/V9VONeUBea2QW+l4p68JrfgI1O3ivbtF/GG2Dz3GraXc9fDMqLMOanttSRQ+Vjz+w4bjGO1pY4R3pcuVDcvbXLU7EHVIU8GUwnvUre9766ub61vJrDfqjj32AjZFzQgplSGdY+lla7vuL2qfu9cm3rolGzXm9oNb1lZPi6X4qHHa4AzQHi33Tmwsfx7c8EMNIR3VDipNenJDRosZ+gyOCjuNZnChfdY0uh6bhF+1gMG3jb7rco67tXf8INtQZAYIrwkoTWvTIruYDzWPJZWFet+1GF4X6v8PRZthCq++/Uo3hJbdG5a97Acr2Xjsa8OhVv8zDFcNLXrvZY3NzkBnvBOeFf58IOgZQC0eVLrim8Cw34i+23T8udV9/VO4x1ve0rtt1thMDIXvnPPx2CUamAN0XD1bpRXkwZ81bDlKP+O277GuthQtL62HlLrqv7NwVvJz3/tIWym632f9e+YathFFo+vnWmEdNUgHaOyUQEP4i4X4X3hyipAnZ7cbI9BUgmPFLNVYcnJbdWgVyLQ9RjLqZ8cT7q8ijvqedm+4ikPdxOv/1Ub76saDYNThbJrYqXiccK29sWxJEzVvWMxJ+sKAX6nboeTpev9vuftD0y9bxqoXV0PXdyXHLtzvNsTKp6euCybLLmhTHhfuJ3KH7CregEPGoSDoS4woab94EvRSeuuwcUj+/t9zMzSZJunvt+GciwIOi8lx1LQsO7fChxdNaRWJT+3GeT2LddlznwV39G1PQPNnGxunIf3JWU6xxC7U/mseG1moAHhfdJOsnPr3NH1bfMxzlTiKr51+zjxC2xYcjKvE949Xc9OMrZGl2dO1FPfb32Fp6rhXRXqf1ChTmV7C9tMz+da3O70+pws17+m67KEa8pKxZ1CQ89AM0Z519BtxXPyXJ+1CFQ+hGYrOnQI7wtVFtSq9L4FDULBUCeDudi03Ge3gv77CC+sa6rpYA3BsmEgqwbnlLKH8Joo+ruj5TIr+zx34cdUVOH80+cMNFOwzqkjYeZ6el7gOXJVcr7gAVbC+2Id1f6lTesJhPfVzE5wO7W/lerkhK/NiLYxWb9nqulgDcGy+p/3s33J550q7Pc6vAph0rZDSTBdur2kn0t+p68ZaKYY3rc5daaoUfw000bjyTQEzwR4wjvqB+2iaSN9Xfd6vai/MdNfJf1b4etPlb/4Yk6h617lt1KDTJn0OT1klX32X7Pf0C7IhhWC1rnkOLm1rLy6XxbOjw22wWbYRz+2Ku8Y+lVMr5l3Ht41uE5vZlo+kcqHSzIDDeF9kUKVjy0LKvYYVDnJwF6j69ziZL7O+bwTxTppTYLsqaTRdnfj4rm+0RAoc2Q3LcZa5TPQ7LXsccubnEbPrXpT1Bhq856PKWQUZqAhvKNB4M47MbiKb9eljXHM9JxtC372WHBR9HXda7qlODmOajTeVzl1f29hXTx2x2yczLmmbNjDTsu8g5J3Ht61qKdzDq87MQPNKH1LEQxeMTYqfvAryJwcghGcPKoO0VlpnmNRt4p7t24NCVrf2E/rhuVoyy8VfscxFzfGELcLvlGFv4sU3317vPHzZEztMVWfssdc1eAemots0X7H/AJ8WHCeejDHj7+wstnUPA+X1dPkOYLTTMsrUP4MV9lrYqT+3+9BeMegQfDXgp+vS8J7n2Om042OsOJJMpphEDyZ/fa54GS+yVwQXF3fMdkNfNEqCnKRms9CsjR3N46RqnXpsWLjPbhx/rDBbVAHMG6RuX58KfidR3MMBgspk7wQWuU8vFH8rFfV6/TcrEquCckDrC7nhn4wbGZ4O5Xf3gxSFShbefYjryzbme63su1a54SwtDeNd6jTSQznGUv9D1INqmzjr87blMt+r254j0p+7ndQVkWNnAOH0s3jq+yO2/OCwntewK4yAcPXCud7Z8bldlL5uwSYgYbwvignVX9pUzDBcLyf8X57KQldTkF4H/t+C6maleSF3nPNzyg6Fu7NRXN1I5hVdexg24seivQsL8sbYPvmFFjLxi1/0fyHzzjqbgrcJm/ZnppI1d4lsKXKEd6XYluhQgTK73mLJhByf1Tc+zO3IL8pOZkHqeB+nwl3u5FvW5Tab5yM64X3unWy7FgIcoJBk+FyRY2KR8sNvDvLAd5vsS6oNgPN5wWUQdef78y8DPeq9i6BR6pctxjzPg5HxT0jzzUD/m5CFX6/wP22NvstqNlYY78tr/6/5jTOE0839s2pQYPs0fLx8ang5yuLnQurCutio9HR9X4eysk0gI6a37s3mob3Q4NjwSuop8n0rruZl+PWlAMv8iO8w1T4osqQPeFOofe2iGO+jiNaJ7fB+mwK9tu9+XmTB6TGvN8kHkpKHzO26v9Tzd+3zasZtkPFU1XeeogtkJ2H+NySRser5eOxbjnk8UcW3tMBPlxggA9ytjlosE+ckgbQRst450pg6gmzkg2EYTPjEareQ1dTPkG4it/k+Y/G86DUxqxP3ZP5sWS/ZW9F9z09pE2+2W//FW9oLArvTYLf3gThKpq+16FsvZyG9UYFjde1hTLetvz5rTIsCu9tG7iPN87xQ4s0/7HZVY7T14bn4ZOK7/LcazkP//o1zlkgvM9anUC+ncl2uiMJYJ9TJ1+bAWZOja5t5sSN2xf4LkJq22OobL2chnX5vaRutKnjKxXfkXhtGIpDS/U5T144Pms84/J3qvbOhzmFTJsvx9u0/PmcznMr1X9AH4T3WYb3Ki3Zpr0GYzmRpnuljiMp90STnoRQ1e6ajHl6yDKBPt4iDamujQNv21DeVXj3Whwbt9wp7qlsUk5eybae1bwXeV/wszZ3DDzlP/i5H9lxu1H5DDRzkQ3Tbd9IfiwpuyX1vkfi7aqEd1TuEdhNePt2OSfCIa0sNSY2lvbtWAPqdmT7bSy8Gxf3puG6LFC1abhHHZVBqOIZKB50eYFLnXoZqnhsdtCiLPYqnn3l1wYB3r8RCs8aZ2/sWuUz0Eydq+shTDb2Rdk1eEmBdq/yGWhAeJ+9nYpvQ72r+14ct+XPi7btPufC32WQKtuOnaWAE6q41/59BI2uVYsG5d0A4d2ZaHhvs95lDbz9CI+PZL1fSgJ8ZIKTUyEA/1kS3H+yUBZl4fxXsy5+xfPI1xvrvLFUXzzL+/uk4YY9uD0tZ3vjXG2jwVo29ao/oXJzLZTzUu7kjAKzzYzPyVwIPjVs8fdxEd/qMu1Y1RDm6boH5N3yem3MelUJ4J75shlKN7r9KvKx7LdVzf3m63pGAVtvs3RKLnAPsjPzh22+udgFBWHNNeEyUr0x8JHi3tC8WRyazDDlpI71srD6oMv0oFGDcg/MsXVrvvA787PPuryj4pSpj1WeOfnJUn0KzWd9KQlhX03ZR5ngV2WdX2TnjltyvOWVed1jLHu+8yX93WP9cSqcq3wLIXut/OclArXvffdUPmNP3fNtsp/dCueeY4uy39z43LZlHogZaHrzzV9//E4pjI+reOaTPP+R/Wn6kopb5wJqw6EkvLmpE0Jf6/WD2o+HvO95vyUn9L7224ua3xZO788qF0CZMHtMhaew5/q4MuvtNrwwJcFvXzHIBTcCZdVyX5t1rlq+ZXX0qHq9xysTrm1PR/guu3PHp8t728H6/tIyJK5T5+X7CvspqR/7hmXwpYPzYfrz3dT2dFXvfV3eSHxfciyF5vOrfLaT2gZP9d6XkMwnv8upQ07qnOjW+NxDqmx2JdeWpEz8Cuev91R5l33urXKKcsq+7FoPwvts7HQ9f3ib0FTUg/D3QNtYdnE7qf/5iNuG7LyL4Nz2289q1pu4VjwUoY2z+h9O82/PjUNH+XNJf18huPqKe4r7rqt527A2X3cW9vlW3Y4bd80518ZLrN7MdrcJvW3qSpXjJM9W13d8bYR3G/Vekr4raUC2OSeWldle9d7DkOdV13ccuvpcG2XStPHp6fp5FcK7ZYx5H6+tPo6p6+qlTCcNN9XTfmRlflD73vGdPj4ENtaH1ea037p2tlzfqvzOJufYjCx9flfrnbcNrmnsNXkw8lXxsBanhzp0NOHiB9PYPjc4Rl4l/ZgKL0Mdq02PgbWuxy2fLJVtH3Ww6bXsrOFeOnfq4fPPPa9bpOvOqqHKd7boeUdfHH184Oqo4WcscfVxfGHIbioto4gTMVqeA/ycYys5rk66Hls+FE+XYRLJ/zuZc0VyHpvTuSPZzpPG97wJpnnt4LpBeAcAAACWiWEzAAAAAOEdAAAAAOEdAAAAILwDAAAAILwDAAAAILwDAAAAhHcAAAAAhHcAAAAAhHcAAACA8A4AAACA8A4AAACA8A4AAAAQ3gEAAAAQ3gEAAAAQ3gEAAADCOwAAAADCOwAAAADCOwAAAEB4BwAAAEB4BwAAAAjvAAAAAAjvAAAAAAjvAAAAAOEdAAAAAOEdAAAAAOEdAAAAILwDAAAAILwDAAAAILwDAAAAhHcAAAAAhHcAAAAAhHcAAACA8A4AAACA8A4AAACA8A4AAAAQ3gEAAAAQ3gEAAADCOwAAAADCOwAAAICWvqUIANTgSlqZL0fSQ+pn75KOksLUV1ueWZafs7y31PL25r/rbMfOcrlszVdiJWltcRmPkr6XFKW+tzVlZIsnaZPZji7KK1mWK+nU0bHqpI4d15Rf4mzKMX38nDpcXlI3IlOOEacSAE1989cfv1MKAMr4JtQ91vibcyrEb3tY3sGE5SrByDPrdWexjF5NeEsEkr5Y3g8/ZUJ0WLOMmmxHV+UlST9YauRlQ/TafN3VPH4ic6weay5vK+m5xt+8m+N7x6kFAOEdgG1bSZ9uhPN0UHYl3d/4jP+oes/mreW9Z0LVrdD6iwlGVbgmmG4z6/5eMcB5qYB4MI2OvN/xcoL8W8Uyeaywbb4J3J9yAqksbYeN8spuj+3w7ivuRb+7Ec7TgfvBwvGzMgG8bHm36sbBfMaJ0wyAqhg2A6DITtc9igcTbsIb4W6T8zdehZDmmN/JhqoXExajG+Fpk/mbz2Y9ggrbdzRfnvm79HZXCXCepL9LficyX+vMeq4rBtdNZt3yJJ/zKSfMytJ22CivW8eUDUFOAynp4d7nBGTH7IOgoNHZdHm7G2W8zmz7oylPXwylAVARD6wCqBOyfjZBIywId4Gk70yQqWObCbdnxcNEgoJgszeh6CXz/WfVH6rTRKTqvdunhsvYmrIYy3a01cV+8ZV/Z8Mzx/Hpxv7YmIbeS6YBWmaVs7wXFT8bEJlj+YfM/rwzx7HDKQcA4R1AU6sbwb1q8Dqqek+sdN0jmXxvV/Hvg5wA/0nVe57bNnK6dDLhboqhuqyh4Fn4PCenfN7Mvj/VOP6qhncnZ5+/qtqdHpmGb/a4vO+x/AEQ3gHMUDZIHBqEi3Sg8kvCUDbovzQIxYGue/t3PZTVzoTFrvfHWfUepFSD/fXW8TK62J61rsecB6p3p+OU0/grWvf08s41gnu6AfNL5nvPPTU2ARDeAcxMoOsxwJsGn1M1EAU54WvTcN2zf3ev65lTuuB1HLwi5ff4drEdQQ/ltVd+j3nT8J5t+EUN1ylpTBY1NJ9zwvypwfKSBky2LgAA4R1ALdmw+67mM4LsUkG+KLynten93eUEohW7dBSBPQnanuVj9e5GCG8S3t9Kwvuq4Bhv0rjNruszhyMAwjuAuvzM/4ctPiuU9I2Kh9w8WApft9bX76icNup+LPpeze9C1FnGlx6Oq5WkXy03pvwb29OmIePWbNgeW5a9ejpeAcwEU0UC0+Iov+fSv/G9ner1DLq67sk8drg9foXwXVck6Sn1//cd7YfPHe/rldkOp+Pyv+/p2F138JnZutD1jDmu5boR3dimsGWZbM1nn3LW91jhewAI78BiuTkX/Lzv5YVyR7dfJFNV2GB9bYfpvh1vBJrI4jKCiYTdTUkDZGWxEbApOa4eOygjp+dj68Fy3Th2sE2OKes25Z13R+GUU4eqfg8A4R3oVZATar2ci6yr/nox0W0g+qzue9a/9lAWn3sq87Zh0VaYhh33N85lTy0+81CxY2Ar3jgLEN6BlnY538sL77cCvUvIx0DKhpHYCtxlY7855ufprPxe9rDF9wAQ3oFOVL1gVZUX8h3lD6XJ+16XPZDOxPaNl/O9Y4PQW7Q/VxbK/KVkvda6fv6gLr/k54HsPKy6U/mDtVEHx+lB/fb4nzP7xJ1Y3chrZB3VfIgMAMI7sFjHG0Fu3zK41Q2t0Y0wvO9ou083GjK2Gxt1yyEsCaN7SX9bCLxhSdn82vFxt1M/M80ky+p6e7oO01GmsdB2eTYamnnr+IN4EBWYLaaKBOYrbHDxPun6LaVey/Xwdbv3PtL1vOx+y+WtMv/fxdtPo5xy6mL/9eG3HrYlafCcZXc8c7aM7tXuTpFXcrxnG7dte/29ig3ounW4Sd0HQHgHMOHQXzV8lwkUP5i5rrm8plzZnxHklrWknzvcD5H5/G3H+3utfoZ/HM1xZHN79hUab1U5iu+m/F2zQbVqsf7Zv30XQ1MAEN4B1LTL/P9di4CybrC8ezWfijHv77oKv/segvVW3b8IKhtg2zTW6ja0/JafEen6rkHTYyc5xg8l+/zc4Bi/tf1PJXUBAAjvAEqFOQFm2yDQubr0gp9KAlF2aMum4fKyQarsoVBcB9GyOyW2GgmR7EyXucn8/2PDxmbV0L/NWV6TRkg2qJ97aAwCILwDmKlAH3sY71S/VzAdhqKawem+ZpBxTCPgLhOGNuzKWmWYhPauGzxrs6/OFj5rl9PY3Knesxquqo9f3+Q0Nvc1l7fJWd5G5c8DuBymAAjvAPIcdd37+mRCilMxnNV5QVAk6afM954rLs9TfLfgIadBcGRXVrZNNX66LLd0IyGy9JmrnMZmqGo94r4+Dk2qsk5Bw+U5pmGRrRsvJY3V5Fj+x/y74nAFCO8AkLXLCdRPJjxsc4KKp7j38KhmUwLWWZ5rAsxO8QOG2eD+k+qNFXdL/t8GNyfIdc2r+Hu+aSwlwgohNPv3VYP7roNGwsmsw3smUH81y1tl1jk5fkLzOw+Zz6rS2PRzAnx6eW6mfLZme59zgntQUmZbXV5yVfeuFICZ+eavP36nFACUBbud2r0h85sav7vKBLw63kwQiipul28C7tONz4pM4ApVf95sJ/X5K+W/oOiQWkZkvk41luFmlmHjLabvNxovSXm5OQG0qV9kd2hT0jh4avEZdWb4cUwjscmUkcmwrrJlebqeAees6b08DQDhHUDPAhM2qgTEswk1oZrNOe2Y5a0rLu/NhKBdjQZJ3YclD6r3YOJG9YYO1Q2OMkH/zvJ+ztvOJuVVxQ/qZipP3xw7TzW2OTleo46XdzbH6bZGvQgzDYSy3noAhHcA+B9Xlx7YvDDZNADd4pmvvOVFuvRc120ceDX/5lRzu1zVH34TqV7Puyc7PbDp8tjnbGeT8ipb55O6H/7h6HJn4lYorlvmTZfXpm44ugzFidTv9KEACO8AAAAAmuCBVQAAAIDwDgAAAIDwDgAAABDeAQAAABDeAQAAABDeAQAAAMI7AAAAAMI7AAAAAMI7AAAAQHgHAAAAQHgHAAAAQHgHAAAACO8AAAAACO8AAAAACO8AAAAA4R0AAAAA4R0AAAAA4R0AAAAgvAMAAAAgvAMAAACEdwAAAACEdwAAAACEdwAAAIDwDgAAAIDwDgAAAIDwDgAAABDeAQAAABDeAQAAABDeAQAAAMI7AAAAAMI7AAAAAMI7AAAAQHgHAAAAQHgHAAAAIP0/PHc79orhn6UAAAAASUVORK5CYII=" alt="Velvet Mountain Coffee Co."></span>
       <h1>Time to Espresso Yourself.</h1>
+      <p class="intro-tagline">Canton&rsquo;s Coffee.</p>
     </div>
     <button type="button" class="sound-toggle" aria-pressed="false" aria-label="Turn on video sound">
       <svg class="icon-muted" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M19 6a9 9 0 0 1 0 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55"/><line x1="3" y1="21" x2="21" y2="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -519,13 +493,6 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
 
   <div class="roasts">
     <div class="roast-card solstice reveal">
-      <div class="commit-wrap">
-        <button type="button" class="commit-link" aria-expanded="false" aria-describedby="commit-tip-solstice">Coffee Commitment &rarr;</button>
-        <div class="commit-tip" id="commit-tip-solstice" role="tooltip">
-          <p class="commit-tip-title">The Coffee Commitment</p>
-          <p>Buy 10 bags in advance &mdash; mix and match roasts, or stick to one &mdash; and pay <strong>$16.75</strong> a bag instead of $21, plus free local delivery.</p>
-        </div>
-      </div>
       <div class="roast-photo-wrap" tabindex="0">
         <div class="roast-photo">
           <img src="beans-texture.webp" alt="" loading="lazy" width="480" height="480">
@@ -540,18 +507,14 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
       <p class="roast-origin">Origin: Colombia &amp; Costa Rica</p>
       <p class="roast-desc">Solstice is crafted from high-altitude Arabica beans. It offers a rich, full-bodied profile. Its velvety texture is accompanied by a lingering warmth &mdash; ideal for slow mornings in the long shadows of the day.</p>
       <div class="roast-foot">
-        <span class="price">$21<span class="price-size"> &mdash; 12 oz</span></span>
-        <button type="button" class="order-btn" data-roast-name="Solstice" data-roast="Solstice (dark roast)">Order</button>
+        <div class="roast-foot-top">
+          <span class="price">$21<span class="price-size"> &mdash; 12 oz</span></span>
+          <button type="button" class="order-btn" data-roast-name="Solstice" data-roast="Solstice (dark roast)">Order</button>
+        </div>
+        <p class="roast-anchor">Or <strong>$16.75</strong>/bag with your Coffee Commitment</p>
       </div>
     </div>
     <div class="roast-card equinox reveal">
-      <div class="commit-wrap">
-        <button type="button" class="commit-link" aria-expanded="false" aria-describedby="commit-tip-equinox">Coffee Commitment &rarr;</button>
-        <div class="commit-tip" id="commit-tip-equinox" role="tooltip">
-          <p class="commit-tip-title">The Coffee Commitment</p>
-          <p>Buy 10 bags in advance &mdash; mix and match roasts, or stick to one &mdash; and pay <strong>$16.75</strong> a bag instead of $21, plus free local delivery.</p>
-        </div>
-      </div>
       <div class="roast-photo-wrap" tabindex="0">
         <div class="roast-photo">
           <img src="beans-texture.webp" alt="" loading="lazy" width="480" height="480">
@@ -566,18 +529,14 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
       <p class="roast-origin">Origin: Colombia, Brazil &amp; Costa Rica</p>
       <p class="roast-desc">Equinox strikes a perfect balance between depth and harmony. It is sourced from origins carefully selected and handpicked on high plateaus. The result is a smooth, composed cup with a refined sweetness that unfolds slowly, leaving behind a quiet, lingering complexity.</p>
       <div class="roast-foot">
-        <span class="price">$21<span class="price-size"> &mdash; 12 oz</span></span>
-        <button type="button" class="order-btn" data-roast-name="Equinox" data-roast="Equinox (medium roast)">Order</button>
+        <div class="roast-foot-top">
+          <span class="price">$21<span class="price-size"> &mdash; 12 oz</span></span>
+          <button type="button" class="order-btn" data-roast-name="Equinox" data-roast="Equinox (medium roast)">Order</button>
+        </div>
+        <p class="roast-anchor">Or <strong>$16.75</strong>/bag with your Coffee Commitment</p>
       </div>
     </div>
     <div class="roast-card aurora reveal">
-      <div class="commit-wrap">
-        <button type="button" class="commit-link" aria-expanded="false" aria-describedby="commit-tip-aurora">Coffee Commitment &rarr;</button>
-        <div class="commit-tip" id="commit-tip-aurora" role="tooltip">
-          <p class="commit-tip-title">The Coffee Commitment</p>
-          <p>Buy 10 bags in advance &mdash; mix and match roasts, or stick to one &mdash; and pay <strong>$16.75</strong> a bag instead of $21, plus free local delivery.</p>
-        </div>
-      </div>
       <div class="roast-photo-wrap" tabindex="0">
         <div class="roast-photo">
           <img src="beans-texture.webp" alt="" loading="lazy" width="480" height="480">
@@ -592,8 +551,11 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
       <p class="roast-origin">Origin: Single origin &mdash; Brazil</p>
       <p class="roast-desc">Aurora is a 100% Arabica single-origin bean, bright and lively. It&rsquo;s crafted from beans handpicked at high altitudes in Brazil, where the thin air slows maturation and delivers a clean, silky, surprisingly refined cup.</p>
       <div class="roast-foot">
-        <span class="price">$21<span class="price-size"> &mdash; 12 oz</span></span>
-        <button type="button" class="order-btn" data-roast-name="Aurora" data-roast="Aurora (light roast)">Order</button>
+        <div class="roast-foot-top">
+          <span class="price">$21<span class="price-size"> &mdash; 12 oz</span></span>
+          <button type="button" class="order-btn" data-roast-name="Aurora" data-roast="Aurora (light roast)">Order</button>
+        </div>
+        <p class="roast-anchor">Or <strong>$16.75</strong>/bag with your Coffee Commitment</p>
       </div>
     </div>
   </div>
@@ -601,6 +563,7 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
 </main>
 
 <footer>
+  <span class="footer-trust">Family-owned. Personally delivered &mdash; not a courier.</span>
   <span>Delivering to Canton &middot; Green &middot; North Canton &middot; Massillon</span>
 </footer>
 
@@ -608,7 +571,7 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
   <div class="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-modal-title">
     <button type="button" class="order-modal-close" id="order-modal-close" aria-label="Close">&times;</button>
     <h2 id="order-modal-title">Order <span id="order-modal-roast-name"></span></h2>
-    <p class="order-modal-sub">Fill this in and we'll text it straight to us — just hit send.</p>
+    <p class="order-modal-sub"><span id="order-modal-greeting">Hey there</span> — fill this in and we'll text your order straight to us, just hit send. Takes about 15 seconds, and we'll text you back to confirm, usually within the hour.</p>
     <form id="order-form">
       <div class="order-field">
         <label for="order-name">Name</label>
@@ -632,13 +595,13 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
         </div>
       </div>
       <div class="order-field">
-        <label for="order-commitment">Coffee Commitment</label>
+        <label for="order-commitment">Your Coffee Commitment</label>
         <select id="order-commitment" name="commitment">
           <option value="No">No — just this order</option>
           <option value="Yes">Yes — sign me up</option>
         </select>
       </div>
-      <button type="submit" class="order-btn order-modal-submit">Text Order &rarr;</button>
+      <button type="submit" class="order-btn order-modal-submit">Text My Order &rarr;</button>
     </form>
   </div>
 </div>
@@ -663,36 +626,6 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
 })();
 
 (function(){
-  var wraps = Array.prototype.slice.call(document.querySelectorAll('.commit-wrap'));
-  if(!wraps.length) return;
-  var closers = wraps.map(function(wrap){
-    var btn = wrap.querySelector('.commit-link');
-    function closeTip(){
-      wrap.classList.remove('tip-open');
-      btn.setAttribute('aria-expanded','false');
-    }
-    function openTip(){
-      wraps.forEach(function(w){ if(w !== wrap) w.classList.remove('tip-open'); });
-      wrap.classList.add('tip-open');
-      btn.setAttribute('aria-expanded','true');
-    }
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      if(wrap.classList.contains('tip-open')) closeTip(); else openTip();
-    });
-    return closeTip;
-  });
-  document.addEventListener('click', function(e){
-    wraps.forEach(function(wrap, i){
-      if(!wrap.contains(e.target)) closers[i]();
-    });
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closers.forEach(function(fn){ fn(); });
-  });
-})();
-
-(function(){
   var video = document.querySelector('.intro-video');
   var toggle = document.querySelector('.sound-toggle');
   if(!video || !toggle) return;
@@ -714,15 +647,33 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
   var qtyInput = document.getElementById('order-qty');
   var commitmentSelect = document.getElementById('order-commitment');
   var roastNameEl = document.getElementById('order-modal-roast-name');
+  var greetingEl = document.getElementById('order-modal-greeting');
+  var submitBtn = document.querySelector('.order-modal-submit');
   var orderBtns = document.querySelectorAll('.roast-card .order-btn');
   var lastTrigger = null;
   var currentRoast = '';
   if(!overlay || !form || orderBtns.length === 0) return;
 
+  function timeGreeting(){
+    var h = new Date().getHours();
+    if(h < 5) return 'Up late';
+    if(h < 12) return 'Good morning';
+    if(h < 17) return 'Good afternoon';
+    return 'Good evening';
+  }
+
+  if(nameInput && submitBtn){
+    nameInput.addEventListener('input', function(){
+      var first = nameInput.value.trim().split(' ')[0];
+      submitBtn.textContent = first ? ('Text My Order, ' + first + ' \u2192') : 'Text My Order \u2192';
+    });
+  }
+
   function openModal(roast, roastName, trigger){
     lastTrigger = trigger || null;
     currentRoast = roast || '';
     if(roastNameEl) roastNameEl.textContent = roastName || '';
+    if(greetingEl) greetingEl.textContent = timeGreeting();
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     setTimeout(function(){ nameInput.focus(); }, 50);
@@ -763,6 +714,7 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
     window.location.href = smsUrl;
     closeModal();
     form.reset();
+    if(submitBtn) submitBtn.textContent = 'Text My Order \u2192';
   });
 })();
 </script>
