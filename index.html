@@ -227,7 +227,7 @@ main{
 }
 
 /* ROASTS */
-.roasts{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.4vw,28px);width:100%;max-width:880px;margin:0 auto;}
+.roasts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,28px);width:100%;max-width:1180px;margin:0 auto;}
 .story{
   max-width:620px;margin:clamp(8px,1.5vh,16px) auto 0;text-align:center;
   padding:clamp(10px,2vh,18px) 6px clamp(6px,1.5vh,14px);
@@ -308,6 +308,8 @@ main{
 .commitment-espresso strong{color:var(--white);}
 .commitment-text{font-size:14.5px;line-height:1.65;color:var(--cream);}
 .commitment-text strong{color:var(--white);}
+.order-deal-hint{font-size:13.5px;color:var(--text-soft);margin:2px 0 4px;}
+.order-deal-hint strong{color:var(--espresso-dark);}
 .commitment-tagline{
   font-size:12px;font-weight:600;color:var(--tan);margin-top:14px;
   text-transform:uppercase;letter-spacing:.05em;
@@ -343,6 +345,7 @@ main{
 .roast-photo::after,.roast-photo-preview::after{content:"";position:absolute;inset:0;mix-blend-mode:multiply;}
 .roast-card.equinox .roast-photo::after,.roast-card.equinox .roast-photo-preview::after{background:#b15828;opacity:.85;}
 .roast-card.solstice .roast-photo::after,.roast-card.solstice .roast-photo-preview::after{background:#5c3a2b;opacity:.72;}
+.roast-card.aurora .roast-photo::after,.roast-card.aurora .roast-photo-preview::after{background:#eebf72;opacity:.85;}
 .roast-tag{text-transform:uppercase;letter-spacing:.06em;font-size:12px;font-weight:700;color:var(--text-soft);}
 .roast-card h2{font-size:clamp(21px,2.4vw,25px);color:var(--espresso-dark);}
 .roast-notes{color:var(--text-soft);font-size:14.5px;line-height:1.45;font-style:italic;}
@@ -498,7 +501,7 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
   <div class="stockists-inner">
     <p class="stockists-label">Also Available At</p>
     <h2 class="stockists-heading">Find Velvet Mountain Around Canton</h2>
-    <p class="stockists-count">6 Locations and Counting</p>
+    <p class="stockists-count">7 Locations and Counting</p>
     <p class="stockists-note">Bags available for in-store pickup at each</p>
     <ul class="stockists-list">
       <li>
@@ -525,21 +528,22 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
         <a href="https://www.google.com/maps/search/?api=1&amp;query=Yoga+Bar+and+Cafe%2C+2255+Greensburg+Rd%2C+North+Canton%2C+OH&amp;query_place_id=ChIJ4VJdHGTVNogRELwk68EakLA" target="_blank" rel="noopener">Yoga Bar &amp; Cafe <span class="stockists-loc">&mdash; Green</span></a>
         <div class="stockists-drop">2255 Greensburg Road, Green, OH 44720</div>
       </li>
+      <li>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Merle+Norman+Cosmetic+Studio%2C+4655+Whipple+Ave+NW%2C+Canton%2C+OH&amp;query_place_id=ChIJJdfmQtbWNogRTProbM6J-Vg" target="_blank" rel="noopener">Merle Norman Cosmetics <span class="stockists-loc">&mdash; Canton</span></a>
+        <div class="stockists-drop">4655 Whipple Avenue NW, Canton, OH 44718</div>
+      </li>
     </ul>
   </div>
 </section>
 
 <section class="commitment-banner">
   <div class="commitment-inner">
-    <p class="commitment-label">The Coffee Commitment</p>
+    <p class="commitment-label">The Deal</p>
     <div class="commitment-price">
-      <span class="commitment-price-old">$21</span>
-      <span class="commitment-price-new">$16.75</span>
-      <span class="commitment-price-unit">/ bag</span>
+      <span class="commitment-price-new">Buy 3, Get 1 Free</span>
     </div>
-    <p class="commitment-espresso">Pulls beautifully as espresso &mdash; about 18 shots a bag, <strong>under $1 each</strong>.</p>
-    <p class="commitment-text">Grab 10 bags whenever you're ready &mdash; mix roasts, match your mood, no pressure to pick just one. You'll save <strong>$42.50</strong>, delivery's always free, and getting in is as easy as saying yes at checkout.</p>
-    <p class="commitment-tagline">Once you're in, that&rsquo;s your rate for good.</p>
+    <p class="commitment-espresso">Four bags for <strong>$54</strong> &mdash; that&rsquo;s just <strong>$13.50 a bag</strong>.</p>
+    <p class="commitment-text">Mix roasts, match your mood &mdash; Solstice, Equinox and Aurora all count toward the deal. Order four bags and the fourth one&rsquo;s on us.</p>
   </div>
 </section>
 
@@ -584,10 +588,10 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
       <p class="roast-desc">Solstice is crafted from high-altitude Arabica beans. It offers a rich, full-bodied profile. Its velvety texture is accompanied by a lingering warmth &mdash; ideal for slow mornings in the long shadows of the day.</p>
       <div class="roast-foot">
         <div class="roast-foot-top">
-          <span class="price">$21<span class="price-size"> &mdash; 12 oz</span></span>
+          <span class="price">$18<span class="price-size"> &mdash; 12 oz</span></span>
           <button type="button" class="order-btn" data-roast-name="Solstice" data-roast="Solstice (dark roast)">Order</button>
         </div>
-        <p class="roast-anchor">Or <strong>$16.75/bag</strong> with your Coffee Commitment</p>
+        <p class="roast-anchor"><strong>Buy 3, get 1 free</strong> &mdash; mix and match roasts</p>
       </div>
     </div>
     <div class="roast-card equinox reveal">
@@ -606,10 +610,32 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
       <p class="roast-desc">Equinox strikes a perfect balance between depth and harmony. It is sourced from origins carefully selected and handpicked on high plateaus. The result is a smooth, composed cup with a refined sweetness that unfolds slowly, leaving behind a quiet, lingering complexity.</p>
       <div class="roast-foot">
         <div class="roast-foot-top">
-          <span class="price">$21<span class="price-size"> &mdash; 12 oz</span></span>
+          <span class="price">$18<span class="price-size"> &mdash; 12 oz</span></span>
           <button type="button" class="order-btn" data-roast-name="Equinox" data-roast="Equinox (medium roast)">Order</button>
         </div>
-        <p class="roast-anchor">Or <strong>$16.75/bag</strong> with your Coffee Commitment</p>
+        <p class="roast-anchor"><strong>Buy 3, get 1 free</strong> &mdash; mix and match roasts</p>
+      </div>
+    </div>
+    <div class="roast-card aurora reveal">
+      <div class="roast-photo-wrap" tabindex="0">
+        <div class="roast-photo">
+          <img src="beans-texture.webp" alt="" loading="lazy" width="480" height="480">
+        </div>
+        <div class="roast-photo-preview">
+          <img src="beans-texture.webp" alt="" loading="lazy" width="480" height="480">
+        </div>
+      </div>
+      <span class="roast-tag">Light Roast</span>
+      <h2>Aurora</h2>
+      <p class="roast-notes">Toasted nuts, caramel &amp; smooth.</p>
+      <p class="roast-origin">Origin: Single origin &mdash; Brazil</p>
+      <p class="roast-desc">Aurora is a 100% Arabica single-origin bean, bright and lively. It&rsquo;s crafted from beans handpicked at high altitudes in Brazil, where the thin air slows maturation and delivers a clean, silky, surprisingly refined cup.</p>
+      <div class="roast-foot">
+        <div class="roast-foot-top">
+          <span class="price">$18<span class="price-size"> &mdash; 12 oz</span></span>
+          <button type="button" class="order-btn" data-roast-name="Aurora" data-roast="Aurora (light roast)">Order</button>
+        </div>
+        <p class="roast-anchor"><strong>Buy 3, get 1 free</strong> &mdash; mix and match roasts</p>
       </div>
     </div>
   </div>
@@ -648,13 +674,7 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
           <input type="number" id="order-qty" name="qty" min="1" max="20" value="1" inputmode="numeric" required>
         </div>
       </div>
-      <div class="order-field">
-        <label for="order-commitment">Your Coffee Commitment</label>
-        <select id="order-commitment" name="commitment">
-          <option value="No">No — just this order</option>
-          <option value="Yes">Yes — sign me up</option>
-        </select>
-      </div>
+      <p class="order-deal-hint"><strong>Buy 3, get 1 free</strong> &mdash; order 4 bags and pay for 3.</p>
       <button type="submit" class="order-btn order-modal-submit">Text My Order &rarr;</button>
     </form>
   </div>
@@ -699,7 +719,6 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
   var townInput = document.getElementById('order-town');
   var grindSelect = document.getElementById('order-grind');
   var qtyInput = document.getElementById('order-qty');
-  var commitmentSelect = document.getElementById('order-commitment');
   var roastNameEl = document.getElementById('order-modal-roast-name');
   var greetingEl = document.getElementById('order-modal-greeting');
   var submitBtn = document.querySelector('.order-modal-submit');
@@ -758,11 +777,11 @@ footer a:hover{opacity:.65;text-decoration-color:var(--text-soft);}
     var grind = grindSelect.value;
     var qty = parseInt(qtyInput.value, 10) || 1;
     var bagWord = qty === 1 ? 'bag' : 'bags';
-    var commitment = commitmentSelect.value;
+    var freeBags = Math.floor(qty / 4);
     var message = 'Hello, my name is ' + name + '. I live in ' + town +
       ' and would like ' + qty + ' ' + bagWord + ' of ' + currentRoast + ', ' + grind.toLowerCase() + '.';
-    if(commitment === 'Yes'){
-      message += ' I\'m interested in the Coffee Commitment.';
+    if(freeBags > 0){
+      message += ' (Buy 3, Get 1 Free: ' + freeBags + ' free ' + (freeBags === 1 ? 'bag' : 'bags') + '.)';
     }
     var smsUrl = 'sms:+13306852200?body=' + encodeURIComponent(message);
     window.location.href = smsUrl;
